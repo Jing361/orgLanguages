@@ -63,31 +63,38 @@ public class Transmitter extends JFrame implements ActionListener {
    JButton doit = null;
    JLabel label;
 
-   public Transmitter () {
-      setLayout(new BorderLayout());
-      add("North", label = new JLabel("Transmitter",JLabel.LEFT));
-      label.setForeground(Color.blue);
-      label.setFont(new Font("TimesRoman",Font.BOLD,18));
-      add("Center",status = new JTextField());
+  public Transmitter () {
+    setLayout(new BorderLayout());
+    add("North", label = new JLabel("Transmitter",JLabel.LEFT));
+    label.setForeground(Color.blue);
+    label.setFont(new Font("TimesRoman",Font.BOLD,18));
+    add("Center",status = new JTextField());
 
-      JPanel p = new JPanel();
-      p.setLayout(new FlowLayout());
-      p.add(classname = new JComboBox <String> ());
-      classname.addItem("Weather");
-      classname.addItem("Sudoku");
-      p.add(new JLabel("  "));
-      p.add(doit = new JButton("Send it"));
-      p.add(new JLabel("  "));
-      p.add(where = new JComboBox <String> ());
-      where.addItem("Remote");
-      where.addItem("Local");
-      add("South",p);
-      status.setEditable(false);
-      doit.addActionListener(this);
-      sender = new Sender(this);
-   }
+    JPanel p = new JPanel();
+    p.setLayout(new FlowLayout());
+    p.add(classname = new JComboBox <String> ());
+    classname.addItem("Weather");
+    classname.addItem("Sudoku");
+    p.add(new JLabel("  "));
+    p.add(doit = new JButton("Send it"));
+    p.add(new JLabel("  "));
+    p.add(where = new JComboBox <String> ());
+    where.addItem("Remote");
+    where.addItem("Local");
+    add("South",p);
+    status.setEditable(false);
+    doit.addActionListener(this);
+    sender = new Sender(this);
+    
+    setSize(700,300);
+    setVisible(true);
+  }
 
-   public void actionPerformed (ActionEvent evt) {
-      sender.sendit((String)classname.getSelectedItem());
-   }
+  public void actionPerformed (ActionEvent evt) {
+    sender.sendit((String)classname.getSelectedItem());
+  }
+   
+  public static void main(String[] args){
+    Transmitter a = new Transmitter();
+  }
 }

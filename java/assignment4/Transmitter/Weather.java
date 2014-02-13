@@ -66,9 +66,6 @@ public class Weather extends JFrame implements ActionListener {
       locale.addItem("NZSP (Antartica)");
       locale.addItem("NVVV (Vanuatu)");
       locale.setFont(new Font("TimesRoman", Font.PLAIN, 18));
-
-      setSize(700,300);
-      setVisible(true);
    }
 
    public void actionPerformed (ActionEvent evt) {
